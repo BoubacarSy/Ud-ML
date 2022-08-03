@@ -27,9 +27,13 @@ features_train, features_test, labels_train, labels_test = preprocess()
 # Enter Your Code Here
 from sklearn.naive_bayes import GaussianNB
 clf = GaussianNB()
-clf.fit(features_train,labels_train)
+t0 = time()
+clf.fit(features_train, labels_train)
+print("training time:", round(time()-t0, 3), "s")
+
+t0 = time()
 print(clf.score(features_test, labels_test))
-#task.warn("Duplicate scores. Result may depend on feature ordering.")
+print("accuracy time:", round(time()-t0, 3), "s")
 
 
 ##############################################################
@@ -41,11 +45,11 @@ The Code Given on Udacity Website is in Python-2
 The Following Code is Python-3 version of the same code
 '''
 
-t0 = time()
+#t0 = time()
 #< your clf.fit() line of code >
 print("Training Time:", round(time()-t0, 3), "s")
-t1 = time()
+#t1 = time()
 # # < your clf.predict() line of code >
-print("Predicting Time:", round(time()-t1, 3), "s")
+#print("Predicting Time:", round(time()-t1, 3), "s")
 
 ##############################################################
